@@ -19,3 +19,27 @@ reversed
 
 *해체할당기능,
 a,b = b,a 가 가능.(swap)
+	
+### set?
+중복허용하지않는다. 순서가없다.
+따라서 형변환을 이용해 리스트의 중복제거가능, 정렬까지.
+
+#### dictionary
+용어(key, data, items)
+indexing
+data추가.변경
+형변환 (2차원 리스트/튜플/셋) 을 딕셔너리로 변환가능
+
+shallow copy
+deep copy
+
+method overloading
+method overriding
+
+빈 set생성
+빈 dic생성
+
+제어문 
+if, elif, if else, 
+for문 range사용.
+
