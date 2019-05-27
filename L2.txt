@@ -1,1 +1,21 @@
-a
+### 리스트 다루기
+len(a)
+a.count()
+a.index() 
+연산자 +,*
+
+filter
+sort (key 지정가능)
+reverse
+
+sorted
+reversed
+
+
+### Tuple? 
+특: 변환이 안된다.
+() 으로 구분되며, ()을 안쓰더라도 무방하다. const
+
+
+*해체할당기능,
+a,b = b,a 가 가능.(swap)
