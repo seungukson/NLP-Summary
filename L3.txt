@@ -1,0 +1,25 @@
+Input & Output
+
+{}.format
+sep, end 인자값
+{}안의 숫자
+책 102쪽
+
+파일입출력
+open('','rw')
+f.read(), readline(), readlines()
+f.write('string'), f.writelines()
+close()
+
+with open(-,'rw') as f:  #close가 필요없다
+    data = f.read()
+
+default인자 'rt'
+
+
+
+05_Function
+함수
+함수내부 지역변수는 더더욱 명시적으로 사용한다.
+
+
