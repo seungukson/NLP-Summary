@@ -29,9 +29,11 @@ a,b = b,a 가 가능.(swap)
 indexing
 data추가.변경
 형변환 (2차원 리스트/튜플/셋) 을 딕셔너리로 변환가능
+data가 있는지 확인?
+'--' in ___
 
-shallow copy
-deep copy
+shallow copy	
+deep copy - copy.deepcopy() 완전히 새로운 리스트로 복사해냄
 
 method overloading
 method overriding
@@ -42,4 +44,7 @@ method overriding
 제어문 
 if, elif, if else, 
 for문 range사용.
+enumerate, list사용, zip사용
+
+
 
