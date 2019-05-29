@@ -38,4 +38,5 @@ numpy....
 
 pandas...개념?
 용도, DataFrame, Series..
-loc
+loc, iloc, ix
+iloc은 순서로접근
