@@ -1,0 +1,41 @@
+lambda함수 : in-line함수 개념
+
+가변인자 함수
+*data,**data,
+*은 tuple로 입력받아지므로 리스트를 변화시킬수없다.
+
+str.split(), str.strip(), str.replace
+
+isupper(), islower(), upper(), lower(), count(), find()
+
+#import time
+time.time(), 
+pre = time.gmtime(time.time)
+pre.tm_sec()
+pre.tm_min()
+
+#import datetime
+
+present = datetime.datetime.now()
+present
+
+present.year, present.month, present.day, present.second, present.microsecond
+
+present.weekday()
+
+
+
+numpy....
+용도, 강점, 배열 생성법, 계산, 계산을위한 전치,원하는데이터만 뽑아내기
+
+.array
+.zeros_like
+.ones_like
+.arange
+.linspace
+.logspace
+.rand.randint
+
+pandas...개념?
+용도, DataFrame, Series..
+loc

@@ -4,7 +4,7 @@ a.count()
 a.index() 
 연산자 +,*
 
-filter
+filter(lambda x:x%2=0, range(1,10))
 sort (key 지정가능)
 reverse
 
