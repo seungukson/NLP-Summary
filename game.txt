@@ -1,0 +1,35 @@
+from time import sleep
+import pygame
+pygame.init()
+
+screen = pygame.display.set_mode((500, 300))
+
+pygame.display.set_caption("Key Event")
+clock = pygame.time.Clock()
+run = True
+
+while run:
+    # pygame.event.get() : 키를 눌렀을때 이벤트
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+
+            if event.key == pygame.K_ESCAPE:  # esc 누르면 종
+                run = False
+
+
+    # pygame.key.get_pressed() - 전체 키배열중 현재 눌려져있는 키를 bool형식의 튜플로 반환
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT]:
+        print("Left key press...")
+    elif keys[pygame.K_RIGHT]:
+        print("Right key press...")
+    elif keys[pygame.K_UP]:
+        print("Up key press...")
+    elif keys[pygame.K_DOWN]:
+        print("Down key press...")
+     sleep(0.1)
+
+    screen.fill(pygame.color.Color(100, 100, 0))
+    #    pygame.display.flip()
+    clock.tick(60)
+pygame.quit()
