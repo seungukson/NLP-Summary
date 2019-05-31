@@ -1,0 +1,79 @@
+from IPython.display import clear_output
+import time
+import copy
+import random as rd
+
+# Snake class, attribute : stx, sty, eat, len
+
+class Snake():
+    def __init__(self, stx, sty):
+        self.stx = stx
+        self.sty = sty
+        self.eat = False
+        self.length = 1
+        
+    def app(self, x, y):
+        self.body.append([x,y])
+        
+    def isEat(self):
+        return self.eat
+    def length(self): 
+        return self.length
+    
+    
+def printScreen():
+    clear_output()
+    global snake, apple
+    print(snake)
+    for i in range(HEIGHT):
+        for j in range(WIDTH):
+            if(i==0 or i==HEIGHT-1 or j==0 or j==WIDTH-1):
+                print("{:2}".format('*'), end = '')
+            elif(snake.count([i,j])):
+                print("{:2}".format('*'),end='')
+            elif(apple.count([i,j])):
+                print("{:2}".format('X'),end='')
+            else:
+                print("{:2}".format(' '), end = '')
+        print()
+    time.sleep(0.5)
+
+HEIGHT = 20
+WIDTH = 20
+
+Snake snake(HEIGHT/2, WIDTH/2)
+
+apple = []
+
+i = 1
+while True:
+    
+    if(i%3==0):
+        randx = rd.randint(1,HEIGHT)
+        randy = rd.randint(1,WIDTH)
+        
+        apple.append([randx, randy])
+        
+    head = copy.deepcopy(snake[0])
+    inp_key = input("awsd : ")
+    if inp_key=='a':
+        head[1]+= -1
+        snake.insert(0, head) 
+    elif inp_key=='d':
+        head[1]+= 1
+        snake.insert(0, head) 
+    elif inp_key=='w':
+        head[0]+= -1
+        snake.insert(0, head)        
+    elif inp_key=='s':
+        head[0]+= 1  
+        snake.insert(0, head)        
+    else:
+        break 
+        
+    if(not eat):
+        snake.pop()
+    printScreen()
+    i +=1
+    
+    
