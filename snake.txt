@@ -6,74 +6,127 @@ import random as rd
 # Snake class, attribute : stx, sty, eat, len
 
 class Snake():
+    #snake 객체 초기화, 인스턴스변수 stx, sty, eat, length를 가지고 list ( body )를 가지고있음
     def __init__(self, stx, sty):
-        self.stx = stx
-        self.sty = sty
-        self.eat = False
-        self.length = 1
+        self.stx = stx   #초기위치
+        self.sty = sty   #초기위치
+        self.eat = False # 이번턴에 먹었는지? False일 경우 1턴이 끝났을때 리스트에서 pop해줘야함
+        self.length = 1  # 뱀의 길이, score
+        self.body = [[stx,sty]]    # 몸의 위치 저장
         
+    # body 리스트에 x,y원소를 추가
     def app(self, x, y):
-        self.body.append([x,y])
+        self.body.insert(0,[x,y])
+        self.length += 1
         
+    # 이번턴에 먹었는지 
     def isEat(self):
         return self.eat
+    # length를 return
     def length(self): 
         return self.length
-    
-    
+    # size 만큼의 길이를 잃는다.
+    # size가 1보다 작아질 경우 1개는 남긴다.
+    def loselen(self, size):
+        if self.length > size:
+            for i in range(size):
+                self.body.pop()
+            self.length -=size
+        else :
+            while(len(self.body) > 1):
+                self.body.pop()
+            self.length = 1
+    def head(self):
+        return self.body[0]
+                
 def printScreen():
     clear_output()
     global snake, apple
-    print(snake)
-    for i in range(HEIGHT):
-        for j in range(WIDTH):
-            if(i==0 or i==HEIGHT-1 or j==0 or j==WIDTH-1):
-                print("{:2}".format('*'), end = '')
-            elif(snake.count([i,j])):
-                print("{:2}".format('*'),end='')
-            elif(apple.count([i,j])):
-                print("{:2}".format('X'),end='')
-            else:
-                print("{:2}".format(' '), end = '')
-        print()
-    time.sleep(0.5)
+    if not GameOver:
+        for i in range(HEIGHT):
+            for j in range(WIDTH):
+                if(i==0 or i==HEIGHT-1 or j==0 or j==WIDTH-1):
+                    print("{:2}".format('.'), end = '')
+                elif(snake.body.count([i,j])):
+                    if snake.head()==[i,j]:
+                        print("{:2}".format('o'),end='')
+                    else:
+                        print("{:2}".format('*'),end='')  
+                elif(apple.count([i,j])):
+                    print("{:2}".format('X'),end='')
+                else:
+                    print("{:2}".format(' '), end = '')
+            print()
+        time.sleep(0.5)
+    else:
+        print("Game Over")
 
-HEIGHT = 20
-WIDTH = 20
-
-Snake snake(HEIGHT/2, WIDTH/2)
-
-apple = []
-
-i = 1
-while True:
-    
-    if(i%3==0):
+def gen_apple():
+    randx = rd.randint(1,HEIGHT)
+    randy = rd.randint(1,WIDTH)
+    while(snake.body.count([randx,randy])):
         randx = rd.randint(1,HEIGHT)
         randy = rd.randint(1,WIDTH)
+    apple.append([randx, randy])
+
+HEIGHT = 10
+WIDTH = 10
+APPLE_GENTIME = 3
+GameOver = False
+apple = []
+
+snake = Snake(HEIGHT/2, WIDTH/2)
+
+
+printScreen()
+i = 1
+while not GameOver:  
+    if(i%APPLE_GENTIME == 0):
+        gen_apple()
         
-        apple.append([randx, randy])
-        
-    head = copy.deepcopy(snake[0])
-    inp_key = input("awsd : ")
-    if inp_key=='a':
-        head[1]+= -1
-        snake.insert(0, head) 
-    elif inp_key=='d':
-        head[1]+= 1
-        snake.insert(0, head) 
-    elif inp_key=='w':
-        head[0]+= -1
-        snake.insert(0, head)        
-    elif inp_key=='s':
-        head[0]+= 1  
-        snake.insert(0, head)        
+    head = copy.deepcopy(snake.body[0])
+    
+    
+    
+    #키 입력받은방향으로 머리 이동함.
+    flag = True
+    while flag:
+        inp_key = input("awsd : ") # 키입력
+        if inp_key=='a':
+            head[1]+= -1
+            snake.app(head[0],head[1]) 
+            flag = False
+        elif inp_key=='d':
+            head[1]+= 1
+            snake.app(head[0],head[1])
+            flag = False
+        elif inp_key=='w':
+            head[0]+= -1
+            snake.app(head[0],head[1])        
+            flag = False
+        elif inp_key=='s':
+            head[0]+= 1    
+            snake.app(head[0],head[1])
+            flag = False
+        elif inp_key=='z':
+            break
+        else:
+            continue    
+    if flag:
+        break
+
+    #사과를 먹었는지 확인하고, 먹었으면 apple리스트를 갱신
+    if(apple.count(snake.head())):
+        snake.eat = True
+        apple.remove(snake.head())
     else:
-        break 
+        snake.eat = False
         
-    if(not eat):
-        snake.pop()
+    if(not snake.isEat()):
+        snake.loselen(1) # 1만큼 길이를 잃음 
+    if(snake.body.count(snake.head())>=2):
+        GameOver = True
+    if(snake.body[0][0]<=0 or snake.body[0][0]>=HEIGHT-1 or snake.body[0][1]<=0 or snake.body[0][1]>=WIDTH-1):
+        GameOver = True
     printScreen()
     i +=1
-    
-    
