@@ -1,0 +1,40 @@
+
+Data Science Competency
+
+1 Mathematic
+
+2 Programming
+
+3 Data Analysis
+
+4 Domain Competency- most important
+전문분야.
+
+
+DataFrame의 열추가방법.
+
+df.join(df2) ; df1과 df2가 겹치는 col이 없을때하는 방법, 그냥 오려붙이듯이 붙여버림
+
+df.merge(df2): df1과 df2가 겹치는 col이 있을때 겹치는 col을 기준으로 붙임.옵션how: inner, outer, left, right
+               겹치는 col이 2개 이상이고, 실값이 다를 경우? on값으로 기준값을 준다.
+
+행추가방법
+df.append(df2)
+pd.concat([df1, df2]) 걍 무식하게 붙여넣기. 잘라붙임.
+
+
+
+데이터 쿼리
+data[data['--'] == '---']
+or기능을 하고싶다면?
+data[data['name'].isin(['dd','ee']) 
+
+sort_values(by=[], )
+
+
+matplotlib
+plot, scatter, bar, hist, pie
+
+labels, legend, marker, linestyle등등..
+
+savefig()
