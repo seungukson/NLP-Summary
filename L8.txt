@@ -1,0 +1,29 @@
+크롤러
+크롤러를 알기위한 html 태그 분석.
+
+beautifulsoup에서 제공하는 함수를 이용, tag내에 요소들을 뽑아올 수가 있다.
+
+
+request, webbrowser, beautifulsoup 의 사용법. 
+
+requests.get(주소값) : 객체를 반환.이 객체는 requests.models.Response라는 타입.
+requests.get(넘기는아이디없는주소, 넘기는아이디:name의 딕셔너리) : 위와 같다.
+
+반환값에서는 status_code값, content값(byte형태로 읽어들임), text등등을 사용할수있음, 
+
+beutifulsoup 은 bs(request로 뽑아낸 byte값 ,'파서이름')의 형태로 bs4.BeautifulSoup의 객체를 반환하며
+( 파서이름: lxml , html 이있음.)
+반환된 객체(soup라고하자)를 이용해 파싱된 결과값을 뽑아낼수있다.
+뽑아낼 때는 sout.find(태그명, 태그클래스옵션등..)을 사용가능..
+
+find로 반환받은 tag객체는 <-태그명>까지 긁어옴.
+select
+
+----정리----
+1. byte형태로 html을 긁어옴(requests).contents, 사실 굳이 byte로 할필요는없네..String도가능..
+2. BeautifulSoup으로 parsing해옴.
+3. parsing된 객체에서.find를 이용해 태그단위로 긁어옴, find_all('a',href='')
+4. tag로 긁어온것에서 원하는 정보를 추출 tag['href']와 같이.. tag.text와 같이..
+
+select와 find의 차이를 알아보기.
+selec...
