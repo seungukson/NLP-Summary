@@ -1,0 +1,15 @@
+find_all('dd', recursive = True(태그안에 같은태그일때 그것도 서칭), false(태그안에 다른태그일때 서칭x)
+
+Response객체 : requests.get으로 뽑아낸... html문서와 헤더 등을 저장해놓은 객체.
+bs4.BeautifulSoup객체 : byte나text를 파서로 파싱하기 쉽게 구분해놓은 객체
+find나 select를 쓰면 tag라는 형식으로 긁어옴.
+
+find_all로 찾은 객체 : bs4.element.ResultSet.
+select_one, find으로 찾은객체: bs4.element.Tag
+select로 찾으면..list<element.tag>
+
+
+scraping에서 중요한것.원하는데이터를 잘 뽑아오는 능력?
+무작정 보이는 것보다는 태그를 이해하고 부모->자식 으로 넘어오는게 효율적.
+
+문자열 클리닝도 어느정도 중요.
