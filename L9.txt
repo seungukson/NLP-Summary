@@ -13,3 +13,11 @@ scraping에서 중요한것.원하는데이터를 잘 뽑아오는 능력?
 무작정 보이는 것보다는 태그를 이해하고 부모->자식 으로 넘어오는게 효율적.
 
 문자열 클리닝도 어느정도 중요.
+
+image스크래핑은...
+리스폰스 형태로 requests(이미지주소) 로 가져옴.
+
+with open('addrss','wb') as f:
+ size = 10000;
+ for s in 리스폰스.iter_content(size):
+	f.write(s);
