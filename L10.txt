@@ -1,0 +1,7 @@
+정규표현식(regular expression)
+
+? / * / + / . / [ ] / [ ^ ] / ( )
+
+정규표현식을 이용한 크롤링.
+
+Selenium, webdriver를 이용한 테스팅패키지
