@@ -1,0 +1,7 @@
+selenium심화.
+
+iframe은 주소가 또 따로 필요.
+find element by xpath 는 절대경로이기때문에..문서전체에서 찾는듯.
+세부적으로 찾을때는 다른 함수를 사용해야할것 같다.
+
+webdriverwait <- 명시적인 시간제한
