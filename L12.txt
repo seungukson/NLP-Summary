@@ -1,0 +1,27 @@
+Selenium을 이용한 iframe내부데이터 크롤링.
+iframe을 가져오는 두가지 방법.
+1. 	mainframe = driver.execute_script("return window.frameElement")
+   	iframe_element=driver.find_elemnet_by_xpath('PATH')
+	driver.switch_to_frame(iframe_element)
+
+2. 댓글창을 가져올때 network에 요청이 가는것을 이용.
+   요청주소와 경우에 따라 헤드값을 가져옴.
+
+   jquery가 크롤링될경우는 dictionary값을 json.loads로 파싱이 가능.
+   그 안에서 의미있는 데이터를 찾는 경우가 있다.
+
+결과적으로...크롤링은..
+
+1. Beautifulsoup
+ html 을 파싱할때..
+
+ response 객체를 수프로 파싱. select 로 원하는값 찾기
+2. Selenium
+ 웹테스팅 기능을 이용한 동적기능(자바스크립트)..클릭 이라거나 인풋값을 넣는다거나..
+
+ 웹드라이버를 이용한다. 
+ driver = webdriver.Chrome('경로')
+ driver.get('http://--')
+ driver.find_element_by_---()로 얻어온 객체들을. click()이나 send_keys()로 조작가능
+ 거기서 뽑혀진 태그들을 조작하여 데이터를 얻어올 수 있다.
+ 사용법은 약간 다를수는 있다. get_attribute(), get()
