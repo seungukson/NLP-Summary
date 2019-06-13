@@ -1,0 +1,34 @@
+Web API 이용하기.
+
+API_KEY ? API를 사용하기 위해 허가 키를 받는것. 
+params에 적절한 쿼리스트링에 넣어 사용.
+
+허가 키가 없어도 되는경우 그냥사용.
+ **크롤링 과정에서 사용한 패키지 - xmltodict(xml_data)
+
+jason_dump(json?dict?) : json->string
+jason_loads(string) : string ->json
+
+-----------------------------------------
+
+Database 
+DML(조작어, Data Manipulation Language) CRUD
+DDL(Data Definiton Language)
+DCL(Data Control Language)
+TCL(Transaction Control Language)
+
+----
+mysql -u username -p < file.dump : 덤프파일 추가
+
+!= 안쓰고 <>로 쓴다.
+is null / is not null 구문..
+where절에서 and/or결합가능
+
+결합 우선순위
+and > or
+
+a in (  )
+limit, offset
+
+반올림 round. 루트sqrt
+사칙연산도가능.as value로 필드명지정도가능
