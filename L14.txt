@@ -1,0 +1,44 @@
+mysqldump -uroot -p sampleschema samplename > myfile.sql
+
+database 조작어.
+C R U D
+
+Create 
+테이블 : create table     
+열 : alter table (tablename) add (colname) (dtype) (option-first,after a, d)<-열 추가
+행 : insert into (tablename)((col)) values ((val))
+
+
+Read
+select (colname ) as from (tablename) where (condition) order by (colname) (option,desc)
+colname에 옵션가능. sum avg, max, min 
+group by.... having
+Update
+테이블 : alter table (tablename) rename column (oldname) to (newname)
+         alter table (tablename) modify (oldtype) to (newtype)
+         alter table (tablename) change (old col) (new col) (new type)
+데이터 : update (tablename) set (col)=(val)
+
+
+Delete
+테이블 : alter table (tablename) drop (col), drop (col)
+행 : delete from (tablename) where--    
+
+
+조건문 지정
+case 
+ when (cond) then (val)
+ when (cond) then (val
+ else
+end (if select column, can set the name of col)      
+
+우선순위.
+where > group by> having > select >order by
+
+
+subquery
+
+서브쿼리의 결과값이 스칼라, 벡터(열), 테이블 일경우
+테이블일 경우. insert into를 통해 서브쿼리로 넣어버리는것도 가능
+insert into __ select * from __2
+
