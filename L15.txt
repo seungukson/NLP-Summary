@@ -1,0 +1,40 @@
+subquery - 연속:
+1. where절 안에서
+-1) value값으로.. 	ex) select * from (table) where id = (select min(abc) from (table))
+-2) col값으로		 ex) select * from (table) where id in (select abc from (table))
+-3) table값으로 	ex) select * from (table) where exists(select * from (table) where)
+
+
+mysql에서 object3종
+    command	object		   prepos
+1. create	view   		as (query)	
+2. drop		index  		on (table)(col)	
+3. alter	table  		add, drop, modify, change, rename column to
+
+join 테이블을 붙여버릴때.
+(query) inner join (table) on (condition)
+(query) 
+
+
+
+***데이터베이스에서 데이터프레임으로 담기
+
+pymysql import...
+
+pymysql.connect로 connector 만들기.
+-호스트, 포트번호, ID, pw, db, (cursorclass옵션등)
+connector.cursor()로 커서 만들기
+cursor.execute를 통해 query문 날리기
+cursor.fetchall(), fetchone(), fetchmany(2)을 통해 list형태로 받아옴.
+DF로 저장.
+
+***데이터프레임에서 데이터베이스로..
+from sqlalchemy import create_engine
+import MySQLdb
+
+1. 엔진 만들기. 
+create_engine("mysql+mysqldb://username:password@hostname/dbname",encoding)
+2. 커넥팅
+conn = engine.connect() 
+3. DF.to_sql(name = '', con = engine)
+con.close();
