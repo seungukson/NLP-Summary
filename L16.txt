@@ -1,0 +1,31 @@
+Machine Learning
+
+supervised Learning  <                               >  Unsupervised Learning
+정답이 정해져있는 데이터로 정답을 예측          정답이없는 데이터를 이용.인풋데이터들의 관계파악...클러스터링. 
+   |                      |
+regression          classification
+예측하는data:        예측하는data:
+수치.real num         category num                
+대소비교 가능         대소비교 불가한 정보
+
+hypothesis   cost..
+
+cost가 가장 작은 hypothesis를 찾는 것이 목적.이다.
+
+
+input과 output의 관계를 나타내는 함수를 찾는다..(hypothesis를 찾는다)
+
+그래서, 머신러닝이 뭔데??
+코스트가 가장 낮을때의 weights셋을 찾는과정...
+목표는 예측하기.
+
+
+
+hypothesis : 모델명..? 을 선택하는것..regularization의 문제.
+weights : 가중치...를 변화시키면서 최적화.optimization. weights-cost 그래프를 생각해보자.최저점을 찾는것이 optimization
+
+
+Cross Validation
+train set과 test set의 비교를 통해 optimization이 가능.., overfit인지 확인도 가능..그래프..
+
+Cross Validataion(k-fold)를 통해 평균을 내서 모델들의 정확도 비교를 할 수 있다..
