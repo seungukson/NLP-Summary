@@ -1,0 +1,34 @@
+01_Linear Regression..
+sample data 생성
+
+분석
+sklearn.linear_model  -> LinearRegression
+X, y : np_array
+
+fit(x,y) -> optimizing.. learning rate를 이용. 반복을통해 기울기 0인 최저값을 찾아냄.
+LinearRegression().fit(X_train,y_train).coef_ : weight
+LinearRegression().fit(X_train,y_train).intercept_:bias
+
+sklearn.model_selection
+
+선형회귀에도 오버핏이 존재한다!
+1. 데이터보다 weight가 많은 경우.. 트레인셋은 잘맞추지만 테스트셋은 못맞추는경우이므로.
+2. 데이터가 weight,에 비해 많이 부족해서 정확도가 떨어지는경우..
+--> 오버핏 : feature들이 너무많아..결과에 영향을 주는 요소들이 너무많아..사실 그렇게 필요없음.없애야지. 
+              차원축소와 비슷,x_data의 갯수를 줄이는것을 기계에게 맡기는게 머신러닝..(가중치0주면되니깐)
+
+score계산공식..이해 필요..
+
+
+02_RidgeRegression
+from sklearn.linear
+1보다 클때는 가중, 작을때는 천천히 optimize
+weight가 아무리 작아져도 0이되진 않을듯?0.1->0.01... 조금만줄임. 0.01->0.0001
+
+03_Lasso
+정-직. weight가 작아지다보면 0이되어버림...feature의 갯수가 결과적으로 줄어들어버린다.
+0.2->0.1->0
+feature를 완전 날려버리고싶을때 라쏘를쓴다..feature에 비해 데이터가 적을때..
+
+04_Logistic Regression.. 시그모이드함수를 이용.. 시그모이드함수의 종류중 하나가 logistic함수
+모든순간에서 증가하지만 종속볁수의 값이 특정범위를 넘지않는 함수.
