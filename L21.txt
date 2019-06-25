@@ -1,0 +1,80 @@
+weights, bias 제너레이팅 할때도 smart한방법이있지만,
+활성화함수와 어울리는 알고리즘을 써야함.
+
+variance_scaling - reLU
+xavier - tanh, sigmoid
+
+dropout의 개념. 층을 넘어갈때 일부를 drop시킴.
+원리 : 틀린그림찾기 그룹화의 원리?
+부분학습을 한애들이 함께모여 학습한다..라네요
+집중학습한 애들을 모아서 나중에 한번에 학습
+드랍시키며 학습하다가 마지막 층에서 다같이 예측. keep_prob = 1로줌.
+
+blackbox. 결과를 도출해내는 과정 분석이 잘 보여지지않는다.
+
+이분야는 
+이거저거해봐->잘돼->논문
+
+굉장히 복잡해질수있기 때문에.. 이미지분류를 잘할수있다. 이미지분류 최강
+강한 비선형성 분류에강하다. 음성인식
+
+decision tree
+모든 entropy가 0이되어버리면 overfitting가능성...
+so.. Prunning(가지치기).
+maxdepth를 통해 prunning, leaf node의 최소갯수를 통해 prunning
+
+regression(수치예측) 과 classification 둘다 가능하고, 
+regression의 경우 leaf node의 평균값이 예측값이고
+classification의 경우 최빈값이 예측값이다.
+
+ensemble..
+
+딥러닝에 비해 빠르다. whitebox.. 어떤기준에 따라 분류했는지 눈에보인다.
+강한 비선형성 문제에 약하다. 직선형을 계속 긋는 방식이다보니..
+
+두종류.
+bagging/ boosting
+
+bagging (bootstrap aggregating): 단순하게 독립적으로 합체.
+서로다른 데이터셋으로부터..<- 부트스트랩 방식으로 뽑아낸것..
+중복을 허용해 원본데이터와 같은 방식으로 뽑는다.
+bagging은 트리의 갯수를 늘린다고해서 과대적합이 되지는 않음.
+
+boosting : 연계적. 나무를 보고 업데이트된 나무.
+
+-AdaBoost
+잘못 분류된 데이터에 가중치가 붙기 때문에 n_estimators가 너무 많아지면 정확도가 떨어진다.
+따라서 learning rate를 어느정도는 높여주어야 학습이된다고 봐야한다.
+분류의 복잡도와 모델의 복잡도는 비례. 
+
+
+KNN
+K-Nearest Neighbors
+거리재는방식..
+제일많이쓰는것 : Mahalanobis Distance
+
+KNN에서는 사전확률을 고려해야한다.공장불량률 2%의 예
+SVM에서처럼 normalization이 필요, x-features간 단위차극복
+
+
+비지도학습..
+y값이 없다.. x-featurer값이 비슷한걸 묶는다.
+k-means : 편가르기
+expectation은 편가르기.
+maximization : 편의중심점으로 이동시킴.
+EM 알고리즘.. Expectation과 Maximization의 반복작업.
+중심점을 기준으로 편가르기
+
+초기값 정하는게 중요.k-means++알고리즘
+
+Hierarchical Clustering
+최초의 데이터갯수만큼의 클러스터를 합쳐나간다.
+유사도를 기준으로.
+
+유사도어떻게?:
+1)Centroid : 
+2)Single:
+3)complete: 클러스터
+4)Average: 데이터들 조합들의 평균이 유사도
+
+PCA..Principal component Vector
