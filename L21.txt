@@ -9,6 +9,10 @@ dropout의 개념. 층을 넘어갈때 일부를 drop시킴.
 부분학습을 한애들이 함께모여 학습한다..라네요
 집중학습한 애들을 모아서 나중에 한번에 학습
 드랍시키며 학습하다가 마지막 층에서 다같이 예측. keep_prob = 1로줌.
+CNN- convolution neural network
+Fully connected neural network 에 dropout을 적용시킴.
+장점: 계산복잡도가 떨어진다. 
+Q) 하지만결과적으로는 시간이오래걸린다??
 
 blackbox. 결과를 도출해내는 과정 분석이 잘 보여지지않는다.
 
