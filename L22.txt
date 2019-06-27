@@ -44,7 +44,7 @@ CNN- convolution neural network
 
 Q) cnn이 dropout을 통해 계산복잡도를 줄인다고했는데 결과적으로시간이많이걸린다는 말은
 
-많은데이터가 필요하고 연상총량이 많아진다는 뜻?
+많은데이터가 필요하고 연산총량이 많아진다는 뜻?
 
 일종의 필터링을 거친 후 분류한다면 좀더 나은결과를 얻게 될 것이다..
 (분류하기 좋은필터링, 안좋은필터링이 될수도있으니.. 어떤필터를쓰느냐가 중요할것.)
@@ -67,3 +67,44 @@ elementwise곱
 이미지가 컬러라면?? R필터 G필터 B필터.따로사용.
 채널이 여러개라면 채널갯수의 필터가 필요.
 하지만 피쳐맵은 하나.. 각필터링을 거친값을 더해서 피쳐맵으로 만들어 사용.
+
+pooling:일종의 차원축소?
+대표값을 뽑는 방법에도 여러가지가 있다.
+max pool.큰값뽑는방법.
+계산복잡도가 줄어든다.
+
+padding : 컨볼루젼과정/풀링과정에서 사이즈손실을 막기위해
+filtering : convolution곱 -> pulling
+convolution 2번하고 풀링해도되고. 맘대로. 비율에 따라 결과값이다르다.
+
+Q)convolution 2번한다는건 필터를 2개써서 한다는?
+
+filtering결과를가지고 fully connected NN을 이용해 분류
+
+
+RNN - Recurrent Neural Network
+하나의 머신러닝 결과값이 다시 인풋h가 된다..?
+그러나 마지막 학습 결과로 러닝이되는순간 모두다 가중치가 바뀌므로..결과가이상해짐.
+
+LSTM - RNN upgrade
+long term memory...<-RNN에서사용되었던?
+short term memory..<- 짧게기억하는
+
+AE.Auto Encoding
+
+multi-layer를 통해나온 output layer의 노드갯수는 input layer의 갯수와같다.
+
+x와 닮은 x'을 얻기위해서 사용.: 클러스터링/비지도변환으로 나뉘는데.
+비지도변환: 차원축소 //특성추출
+특성추출할때 x와닮은 x'을얻기위해...
+데이터가부족하다면? 그때이걸쓴다.
+input feature와 output feature가 같다면overfitting
+->restrict boltzmann machine과 비슷하잖아? ㅇㅋ
+weight의 초기값을 줄때도 씀
+가운데기준으로 왼쪽웨이트와 오른쪽 웨이트값을 같게두고 하나학습되면반대도학습되게
+할수있다.
+Hidden Layer의 feature의 갯수가 원 feature보다 크다면 overfitting우려가있지만,
+그렇게 주고 규제를 거는방법이 많다.
+
+G AN
+generater가 오차확률을 줄이는것 = discriminator의 오차확률 1/2
